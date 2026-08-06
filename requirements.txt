@@ -1,0 +1,13 @@
+tensorflow
+opencv-python
+numpy
+pandas
+matplotlib
+scikit-learn
+albumentations
+fastapi
+uvicorn
+python-multipart
+pillow
+jupyter
+seaborn

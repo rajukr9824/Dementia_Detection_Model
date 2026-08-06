@@ -1,89 +1,184 @@
-📌 **Project Overview**
-Dementia is a neurological condition that affects memory, thinking, and daily functioning. Early detection plays a crucial role in managing the disease and improving patient outcomes.
-This project focuses on detecting dementia using machine learning techniques by analyzing patient-related data and predicting whether a person is likely to have dementia.
-The model is trained and evaluated using Python and popular data science libraries to provide an efficient and accurate prediction system.
+# 🧠 Dementia Detection using EfficientNetV2 + CBAM
 
-🎯 Objectives
+A deep learning project for multi-class dementia stage classification from brain MRI images using **EfficientNetV2B0** and the **Convolutional Block Attention Module (CBAM)**.
 
-To analyze and preprocess dementia-related data
+---
 
-To build a machine learning model for dementia detection
+# Project Overview
 
-To evaluate model performance using appropriate metrics
+This project explores transfer learning for medical image classification. A pretrained EfficientNetV2B0 model is used as the backbone, while CBAM enhances important channel-wise and spatial features before classification.
 
-To provide a reliable system for early-stage dementia prediction
+The complete project includes preprocessing, augmentation, training, evaluation, and model comparison in a modular pipeline.
 
+---
 
-🛠️ **Tech Stack**
+# Features
 
-Programming Language: Python
+- EfficientNetV2B0 Transfer Learning
+- CBAM Attention Module
+- CLAHE Image Enhancement
+- Data Augmentation
+- Modular Dataset Pipeline
+- Modular Training Pipeline
+- Evaluation Metrics
+- Confusion Matrix
+- Baseline vs CBAM Comparison
 
-Environment: Jupyter Notebook
+---
 
-Libraries Used:
+# Project Structure
 
-NumPy
+```text
+DEMENTIADETECTION/
+│
+├── data/                    # Dataset (ignored in Git)
+├── logs/                    # Training logs
+├── notebooks/               # Development notebooks
+├── outputs/                 # Evaluation outputs
+├── saved_models/            # Trained models
+│
+├── src/
+│   ├── augmentation/
+│   ├── config/
+│   ├── dataset/
+│   ├── evaluation/
+│   ├── models/
+│   ├── preprocessing/
+│   └── training/
+│
+├── requirements.txt
+├── README.md
+└── .gitignore
+```
 
-Pandas
+---
 
-Matplotlib
+# Model Architecture
 
-Seaborn
+```text
+Brain MRI
+      │
+      ▼
+CLAHE + Resize + Normalization
+      │
+      ▼
+EfficientNetV2B0
+(ImageNet Pretrained)
+      │
+      ▼
+CBAM
+(Channel Attention + Spatial Attention)
+      │
+      ▼
+Global Average Pooling
+      │
+      ▼
+Dropout
+      │
+      ▼
+Dense (Softmax)
+      │
+      ▼
+Prediction
+```
 
-Scikit-learn
+---
 
+# Workflow
 
-📊 **Dataset Description**
+```
+MRI Images
+      │
+      ▼
+Preprocessing
+      │
+      ▼
+Data Augmentation
+      │
+      ▼
+Dataset Pipeline
+      │
+      ▼
+EfficientNetV2 Baseline
+      │
+      ▼
+CBAM Integration
+      │
+      ▼
+Training
+      │
+      ▼
+Evaluation
+      │
+      ▼
+Performance Comparison
+```
 
-The dataset contains patient-related attributes such as:
+---
 
-Age
+# Results
 
+| Model                   | Test Accuracy |
+| ----------------------- | ------------: |
+| EfficientNetV2 Baseline |    **69.18%** |
+| EfficientNetV2 + CBAM   |    **85.68%** |
 
-Gender
+CBAM significantly improved the classification performance over the baseline model.
 
-Cognitive assessment scores
+---
 
-Medical and behavioral indicators
+# Technologies Used
 
-*(Note: Dataset may be preprocessed to handle missing values, normalization, and encoding.)*
+- Python
+- TensorFlow / Keras
+- NumPy
+- Pandas
+- OpenCV
+- Scikit-learn
+- Matplotlib
 
+---
 
-##🔄 **Workflow**
+# Installation
 
-1. Data Loading
-2. Data Cleaning & Preprocessing
-3. Exploratory Data Analysis (EDA)
-4. Feature Selection
-5. Model Training
-6. Model Evaluation
-7. Prediction
+Clone the repository
 
+```bash
+git clone https://github.com/<username>/DementiaDetection.git
+```
 
-##🤖 **Machine Learning Models Used**
+Install dependencies
 
-1. CNN (Convolutional Neural Network): For extracting local features like edges and tissue boundaries.
-2. CBAM (Convolutional Block Attention Module): A mechanism that refines features by applying "Channel Attention" (what to look at) and "Spatial Attention" (where to look).
-3. ViT (Vision Transformer): Captures global relationships between distant parts of the brain image.
+```bash
+pip install -r requirements.txt
+```
 
+---
 
-##📈 **Evaluation Metrics**
+# Dataset
 
-Accuracy
+The dataset is not included in this repository because of its size.
 
-Precision
+Place the dataset inside:
 
-Recall
+```text
+data/
+```
 
-F1-Score
+---
 
+# Future Improvements
 
-##✅ **Results**
+- Fine-Tuning EfficientNetV2
+- Grad-CAM Explainability
+- Streamlit Interface
+- FastAPI Deployment
 
-The trained model demonstrates promising performance in predicting dementia cases, indicating that machine learning can assist in early diagnosis and decision support.
+---
 
+# Author
 
+**Raju Kumar**
 
-
-
-
+- LinkedIn: https://www.linkedin.com/in/raju-kumar-577255257/
+- GitHub: https://github.com/rajukr9824
